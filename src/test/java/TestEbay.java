@@ -23,7 +23,7 @@ public class TestEbay {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--kiosk");
 
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         mainPage = new MainPage(driver);
         signInPage = new SignInPage(driver);
@@ -72,8 +72,8 @@ public class TestEbay {
         Assert.assertTrue(outputPage.textOutputSite().contains("До скорой встречи"));
     }
 
-//    @After
-//    public void tearDown(){
-//        driver.quit();
-//    }
+    @After
+    public void tearDown(){
+        driver.quit();
+    }
 }
